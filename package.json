@@ -12,6 +12,8 @@
     "react-router-dom": "5.1.2",
     "react-hot-loader": "4.13.0",
     "@hot-loader/react-dom": "17.0.2",
+    "@loadable/component": "5.13.1",
+    "@loadable/server": "5.13.1",
     "redux": "4.2.0",
     "redux-thunk": "2.4.1",
     "history": "4.7.2"
@@ -35,6 +37,8 @@
     "@types/react-router-dom": "5.3.3",
     "@types/redux": "3.6.0",
     "@types/webpack": "5.28.0",
+    "@types/loadable__component": "5.13.0",
+    "@types/loadable__server": "5.12.3",
     "@loadable/babel-plugin": "5.13.2",
     "@loadable/webpack-plugin": "5.13.0",
     "babel-core": "7.0.0-bridge.0",

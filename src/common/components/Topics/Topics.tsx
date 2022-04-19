@@ -6,7 +6,7 @@ import {
   togglePageLoadingAction,
 } from 'common/action/pageAction/pageAction'
 
-export const Topics = () => {
+const Topics = () => {
   const dispatch = useDispatch()
   const { page, pathname } = useShallowEqualSelector(
     ({
@@ -35,9 +35,12 @@ export const Topics = () => {
     }
 
     return () => {
+      console.log('1')
       dispatch(setPageAction(null))
     }
   }, [])
 
   return <div>Topics {page}</div>
 }
+
+export default Topics

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { BrowserRouter, Link, Route, Router, Switch } from 'react-router-dom'
-import { About } from 'components/About/About'
-import { Topics } from 'components/Topics/Topics'
-import { Home } from 'components/Home/Home'
+import { AboutLoadable } from 'components/About/AboutLoadable'
+import { TopicsLoadable } from 'components/Topics/TopicsLoadable'
+import { HomeLoadable } from 'components/Home/HomeLoadable'
+import { CreateBrowserHistory } from 'common/reducer/function/createStore'
 
-export const Routing = ({ history }) => {
+export const Routing: FC<{ history: CreateBrowserHistory }> = ({ history }) => {
   return (
     <Router history={history}>
       <div>
@@ -22,13 +23,13 @@ export const Routing = ({ history }) => {
 
         <Switch>
           <Route path="/about">
-            <About />
+            <AboutLoadable />
           </Route>
           <Route path="/topics">
-            <Topics />
+            <TopicsLoadable />
           </Route>
           <Route path="/">
-            <Home />
+            <HomeLoadable />
           </Route>
         </Switch>
       </div>
