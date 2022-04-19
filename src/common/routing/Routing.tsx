@@ -6,7 +6,7 @@ import { Home } from 'components/Home/Home'
 
 export const Routing = ({ history }) => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
         <ul>
           <li>
@@ -32,6 +32,6 @@ export const Routing = ({ history }) => {
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }

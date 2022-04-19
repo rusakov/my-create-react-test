@@ -8,12 +8,20 @@ import {
 
 export const Home = () => {
   const dispatch = useDispatch()
-  const { page } = useShallowEqualSelector(({ page: { page } }) => ({
-    page,
-  }))
+  const { page, pathname } = useShallowEqualSelector(
+    ({
+      page: { page },
+      router: {
+        location: { pathname },
+      },
+    }) => ({
+      page,
+      pathname,
+    })
+  )
   const [show, setShow] = useState<boolean>(false)
 
-  console.log(`page - ${page}`)
+  console.log(`page - ${page}`, pathname)
 
   // useEffect(() => {
   //   setTimeout(() => setShow(true), 2000)
@@ -31,5 +39,5 @@ export const Home = () => {
     }
   }, [])
 
-  return <div>Home</div>
+  return <div>Home {page}</div>
 }
