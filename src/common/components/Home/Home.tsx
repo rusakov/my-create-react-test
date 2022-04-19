@@ -4,7 +4,7 @@ import { Footer } from 'common/presentation/Footer/Footer'
 export const Home = () => {
   return (
     <div>
-      Home <Footer />
+      Home <Footer name={'Home'} />
     </div>
   )
 }

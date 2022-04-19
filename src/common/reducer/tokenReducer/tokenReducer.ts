@@ -19,9 +19,9 @@ export const tokenReducer = (
 ) => {
   switch (action.type) {
     case TOGGLE_VK_TOKEN_LOADING:
-      return { ...state, token: action.value }
-    case SET_VK_TOKEN:
       return { ...state, tokenLoaded: action.value }
+    case SET_VK_TOKEN:
+      return { ...state, token: action.value }
   }
   return state
 }

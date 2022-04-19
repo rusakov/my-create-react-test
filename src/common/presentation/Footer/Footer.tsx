@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { FC, useEffect } from 'react'
 import { useShallowEqualSelector } from 'common/reducer/function/useShallow'
+import { useDispatch } from 'react-redux'
+import {
+  setVkTokenAction,
+  toggleVkTokenLoadingAction,
+} from 'common/action/tokenAction/tokenAction'
 
-export const Footer = () => {
-  const { vkToken } = useShallowEqualSelector(({ vkToken }) => ({ vkToken }))
+export const Footer: FC<{ name: string }> = ({ name }) => {
+  const { token, tokenLoaded } = useShallowEqualSelector(
+    ({ vkToken: { token, tokenLoaded } }) => ({
+      token,
+      tokenLoaded,
+    })
+  )
 
-  console.log(vkToken)
+  const dispatch = useDispatch()
 
-  return <div>Footer</div>
+  useEffect(() => {
+    dispatch(toggleVkTokenLoadingAction(true))
+    dispatch(setVkTokenAction(name))
+    dispatch(toggleVkTokenLoadingAction(false))
+
+    return () => {
+      dispatch(setVkTokenAction(null))
+    }
+  }, [])
+
+
+
+  return <div>Footer token - {token ? token : 'null'}</div>
 }
