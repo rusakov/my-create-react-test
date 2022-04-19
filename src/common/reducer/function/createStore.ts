@@ -3,6 +3,8 @@ import { createBrowserHistory } from 'history'
 
 export const history = createBrowserHistory()
 
+export type CreateBrowserHistory = ReturnType<typeof createBrowserHistory>
+
 const createStore = () => {
   return configureStore({}, history)
 }

@@ -16,8 +16,6 @@ export const Footer: FC<{ name: string }> = ({ name }) => {
 
   const dispatch = useDispatch()
 
-  console.log(token, tokenLoaded)
-
   useEffect(() => {
     dispatch(toggleVkTokenLoadingAction(true))
     dispatch(setVkTokenAction(name))

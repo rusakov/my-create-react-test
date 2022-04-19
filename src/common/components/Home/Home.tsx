@@ -1,10 +1,35 @@
-import React from 'react'
-import { Footer } from 'common/presentation/Footer/Footer'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useShallowEqualSelector } from 'common/reducer/function/useShallow'
+import {
+  setPageAction,
+  togglePageLoadingAction,
+} from 'common/action/pageAction/pageAction'
 
 export const Home = () => {
-  return (
-    <div>
-      Home <Footer name={'Home'} />
-    </div>
-  )
+  const dispatch = useDispatch()
+  const { page } = useShallowEqualSelector(({ page: { page } }) => ({
+    page,
+  }))
+  const [show, setShow] = useState<boolean>(false)
+
+  console.log(`page - ${page}`)
+
+  // useEffect(() => {
+  //   setTimeout(() => setShow(true), 2000)
+  // }, [])
+
+  useEffect(() => {
+    if (page === null) {
+      dispatch(togglePageLoadingAction(true))
+      dispatch(setPageAction('Home'))
+      dispatch(togglePageLoadingAction(false))
+    }
+
+    return () => {
+      dispatch(setPageAction(null))
+    }
+  }, [])
+
+  return <div>Home</div>
 }

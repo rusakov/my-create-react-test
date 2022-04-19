@@ -1,8 +1,12 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'connected-react-router'
 import createRootReducer from 'common/reducer/function/connectReducer'
+import { CreateBrowserHistory } from 'common/reducer/function/createStore'
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(
+  initialState = {},
+  history: CreateBrowserHistory
+) {
   return createStore(
     createRootReducer(history), // root reducer with router state
     initialState,
@@ -10,7 +14,7 @@ export default function configureStore(initialState = {}, history) {
   )
 }
 
-function createMiddleware(history) {
+function createMiddleware(history: CreateBrowserHistory) {
   const middleware = [routerMiddleware(history)]
 
   const composeEnhancers =
