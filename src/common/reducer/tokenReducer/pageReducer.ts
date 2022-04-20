@@ -21,7 +21,7 @@ export const pageReducer = (
     case TOGGLE_PAGE_LOADING:
       return { ...state, pageLoaded: action.value }
     case SET_PAGE_ID:
-      console.log('2')
+      console.log('change reducer-', action.value)
       return { ...state, page: action.value }
   }
   return state

@@ -35,12 +35,12 @@ const Home = () => {
     }
 
     return () => {
-      console.log('1')
+      console.log('unmount-cleanup')
       dispatch(setPageAction(null))
     }
   }, [])
 
-  return <div>Home {page}</div>
+  return <div>Home {page ? page : 'null'}</div>
 }
 
 export default Home

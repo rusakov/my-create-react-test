@@ -35,7 +35,7 @@ const About = () => {
     }
 
     return () => {
-      console.log('1')
+      console.log('unmount-cleanup')
       dispatch(setPageAction(null))
     }
   }, [])
